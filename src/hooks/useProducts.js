@@ -50,6 +50,7 @@ export function useProducts() {
       added_by: user.id,
     });
     if (error) throw error;
+    await fetchProducts();
   }
 
   async function updateProduct(id, updates) {
@@ -58,6 +59,7 @@ export function useProducts() {
       .update(updates)
       .eq('id', id);
     if (error) throw error;
+    await fetchProducts();
   }
 
   async function deleteProduct(id) {
@@ -66,6 +68,7 @@ export function useProducts() {
       .delete()
       .eq('id', id);
     if (error) throw error;
+    await fetchProducts();
   }
 
   async function decrementQuantity(product) {
@@ -75,6 +78,7 @@ export function useProducts() {
       .update({ quantity: newQty })
       .eq('id', product.id);
     if (error) throw error;
+    await fetchProducts();
   }
 
   async function sendToShoppingList(product) {

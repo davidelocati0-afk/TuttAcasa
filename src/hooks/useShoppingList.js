@@ -54,6 +54,7 @@ export function useShoppingList() {
       added_by: user.id,
     });
     if (error) throw error;
+    await fetchItems();
   }
 
   async function toggleBought(item) {
@@ -67,6 +68,7 @@ export function useShoppingList() {
       .update(updates)
       .eq('id', item.id);
     if (error) throw error;
+    await fetchItems();
   }
 
   async function deleteItem(id) {
@@ -75,6 +77,7 @@ export function useShoppingList() {
       .delete()
       .eq('id', id);
     if (error) throw error;
+    await fetchItems();
   }
 
   async function clearBought() {
@@ -84,6 +87,7 @@ export function useShoppingList() {
       .eq('household_id', household.id)
       .eq('is_bought', true);
     if (error) throw error;
+    await fetchItems();
   }
 
   const unboughtCount = items.filter(i => !i.is_bought).length;

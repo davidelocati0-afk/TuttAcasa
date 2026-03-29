@@ -53,6 +53,7 @@ export function useBills() {
       added_by: user.id,
     });
     if (error) throw error;
+    await fetchBills();
   }
 
   async function updateBill(id, updates) {
@@ -61,6 +62,7 @@ export function useBills() {
       .update(updates)
       .eq('id', id);
     if (error) throw error;
+    await fetchBills();
   }
 
   async function togglePaid(bill) {
@@ -90,6 +92,7 @@ export function useBills() {
         });
       }
     }
+    await fetchBills();
   }
 
   async function deleteBill(id) {
@@ -98,6 +101,7 @@ export function useBills() {
       .delete()
       .eq('id', id);
     if (error) throw error;
+    await fetchBills();
   }
 
   const unpaidBills = bills.filter(b => !b.is_paid);
