@@ -11,12 +11,12 @@ export function useNotifications(products = [], bills = []) {
       if (days === null || days > 2) return;
 
       let message, level;
-      if (days < 0) { message = `${p.name} e\u0300 scaduto!`; level = 'danger'; }
+      if (days < 0) { message = `${p.name} è scaduto!`; level = 'danger'; }
       else if (days === 0) { message = `${p.name} scade oggi!`; level = 'danger'; }
       else if (days === 1) { message = `${p.name} scade domani!`; level = 'warning'; }
       else { message = `${p.name} scade tra 2 giorni`; level = 'warning'; }
 
-      result.push({ id: `prod-${p.id}`, type: 'product_expiry', message, level, date: p.expiry_date, icon: '\u26A0\uFE0F' });
+      result.push({ id: `prod-${p.id}`, type: 'product_expiry', message, level, date: p.expiry_date, icon: '⚠️' });
     });
 
     bills.forEach(b => {
@@ -31,7 +31,7 @@ export function useNotifications(products = [], bills = []) {
       else if (days === 1) { message = `${b.name} scade domani!${amount}`; level = 'warning'; }
       else { message = `${b.name} scade tra 2 giorni${amount}`; level = 'warning'; }
 
-      result.push({ id: `bill-${b.id}`, type: 'bill_expiry', message, level, date: b.due_date, icon: '\uD83D\uDCB0' });
+      result.push({ id: `bill-${b.id}`, type: 'bill_expiry', message, level, date: b.due_date, icon: '💰' });
     });
 
     result.sort((a, b) => {

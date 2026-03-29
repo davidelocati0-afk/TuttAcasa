@@ -57,9 +57,9 @@ export default function Bills() {
 
       <div style={{ padding: '0 20px', display: 'flex', flexDirection: 'column', gap: '10px', paddingBottom: '20px' }}>
         {loading ? (
-          <EmptyState icon="\u23F3" title="Caricamento..." />
+          <EmptyState icon="⏳" title="Caricamento..." />
         ) : bills.length === 0 ? (
-          <EmptyState icon="\uD83D\uDCB0" title="Nessuna bolletta" subtitle="Aggiungi le tue bollette e scadenze" />
+          <EmptyState icon="💰" title="Nessuna bolletta" subtitle="Aggiungi le tue bollette e scadenze" />
         ) : (
           bills.map(bill => (
             <BillCard

@@ -46,8 +46,8 @@ export function useChat({ products, addProduct, decrementQuantity, addItem, addB
     }
 
     const summary = actions.map(a => {
-      const icon = a.intent === 'add_pantry' ? '\u{1F4E6}' : a.intent === 'add_shopping' ? '\u{1F6D2}' : a.intent === 'remove_pantry' ? '\u{1F4E4}' : '\u{1F4B0}';
-      return `${icon} ${a.product} (x${a.quantity}${a.unit !== 'pz' ? a.unit : ''})${a.category ? ' \u2192 ' + a.category : ''}`;
+      const icon = a.intent === 'add_pantry' ? '📦' : a.intent === 'add_shopping' ? '🛒' : a.intent === 'remove_pantry' ? '📤' : '💰';
+      return `${icon} ${a.product} (x${a.quantity}${a.unit !== 'pz' ? a.unit : ''})${a.category ? ' → ' + a.category : ''}`;
     }).join('\n');
 
     addMessage('system', `Ho trovato ${actions.length} ${actions.length === 1 ? 'elemento' : 'elementi'}:\n${summary}\n\nConferma o modifica prima di salvare.`);
@@ -66,19 +66,19 @@ export function useChat({ products, addProduct, decrementQuantity, addItem, addB
           unit: action.unit,
           expiry_date: action.expiry_date || null,
         });
-        addMessage('system', `\u2705 ${action.product} aggiunto alla dispensa`);
+        addMessage('system', `✅ ${action.product} aggiunto alla dispensa`);
       } else if (action.intent === 'remove_pantry') {
         const found = products.find(p => p.name.toLowerCase() === action.product.toLowerCase());
         if (found) {
           await decrementQuantity(found);
-          addMessage('system', `\u2705 ${action.product} decrementato dalla dispensa`);
+          addMessage('system', `✅ ${action.product} decrementato dalla dispensa`);
         } else {
           await addItem(action.product, action.quantity, action.unit);
-          addMessage('system', `\u2705 ${action.product} aggiunto alla lista spesa (non trovato in dispensa)`);
+          addMessage('system', `✅ ${action.product} aggiunto alla lista spesa (non trovato in dispensa)`);
         }
       } else if (action.intent === 'add_shopping') {
         await addItem(action.product, action.quantity, action.unit);
-        addMessage('system', `\u2705 ${action.product} aggiunto alla lista spesa`);
+        addMessage('system', `✅ ${action.product} aggiunto alla lista spesa`);
       } else if (action.intent === 'add_bill') {
         await addBill({
           name: action.product,
@@ -86,12 +86,12 @@ export function useChat({ products, addProduct, decrementQuantity, addItem, addB
           due_date: action.expiry_date || format(new Date(), 'yyyy-MM-dd'),
           recurring: 'none',
         });
-        addMessage('system', `\u2705 Bolletta "${action.product}" aggiunta`);
+        addMessage('system', `✅ Bolletta "${action.product}" aggiunta`);
       }
 
       setPendingActions(prev => prev.filter(a => a.id !== action.id));
     } catch (err) {
-      addMessage('system', `\u274C Errore: ${err.message || 'Operazione fallita'}`);
+      addMessage('system', `❌ Errore: ${err.message || 'Operazione fallita'}`);
     }
   }, [products, addProduct, decrementQuantity, addItem, addBill, categories]);
 

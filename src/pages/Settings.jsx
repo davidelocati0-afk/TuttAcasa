@@ -130,7 +130,7 @@ export default function Settings() {
         {/* Notifications */}
         <div style={cardStyle}>
           <h3 style={{ fontSize: '16px', fontWeight: '700', color: theme.text.primary, marginBottom: '12px' }}>
-            {'\uD83D\uDD14'} Notifiche
+            {'🔔'} Notifiche
           </h3>
           <button onClick={handleEnableNotifications} style={{
             width: '100%', padding: '12px', borderRadius: theme.radius.md,

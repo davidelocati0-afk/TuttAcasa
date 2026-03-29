@@ -53,9 +53,9 @@ export default function ShoppingList() {
 
       <div style={{ padding: '0 20px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
         {loading ? (
-          <EmptyState icon="\u23F3" title="Caricamento..." />
+          <EmptyState icon="⏳" title="Caricamento..." />
         ) : items.length === 0 ? (
-          <EmptyState icon="\uD83D\uDED2" title="Lista vuota" subtitle="Aggiungi articoli o svuota un prodotto dalla dispensa" />
+          <EmptyState icon="🛒" title="Lista vuota" subtitle="Aggiungi articoli o svuota un prodotto dalla dispensa" />
         ) : (
           <>
             {unbought.map(item => (

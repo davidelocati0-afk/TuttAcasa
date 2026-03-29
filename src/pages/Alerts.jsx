@@ -9,7 +9,7 @@ export default function Alerts({ alerts = [] }) {
 
       <div style={{ padding: '0 20px', display: 'flex', flexDirection: 'column', gap: '8px', paddingBottom: '20px' }}>
         {alerts.length === 0 ? (
-          <EmptyState icon="\u2705" title="Nessun avviso" subtitle="Non ci sono scadenze imminenti" />
+          <EmptyState icon="✅" title="Nessun avviso" subtitle="Non ci sono scadenze imminenti" />
         ) : (
           alerts.map(a => <NotifItem key={a.id} alert={a} />)
         )}
