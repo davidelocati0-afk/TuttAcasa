@@ -149,6 +149,8 @@ export default function Settings() {
           <h3 style={{ fontSize: '16px', fontWeight: '700', color: theme.text.primary, marginBottom: '12px' }}>
             {'\u{1F464}'} Account
           </h3>
+          <div style={labelStyle}>Nome</div>
+          <div style={{ fontSize: '14px', color: theme.text.primary, marginBottom: '12px' }}>{user?.user_metadata?.display_name || '-'}</div>
           <div style={labelStyle}>Email</div>
           <div style={{ fontSize: '14px', color: theme.text.primary, marginBottom: '16px' }}>{user?.email || '-'}</div>
           <button onClick={handleSignOut} style={{

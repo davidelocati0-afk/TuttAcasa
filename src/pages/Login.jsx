@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 export default function Login() {
   const { signIn, signUp } = useAuth();
   const [isSignUp, setIsSignUp] = useState(false);
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -15,8 +16,8 @@ export default function Login() {
     setLoading(true);
     try {
       if (isSignUp) {
-        await signUp(email, password);
-        toast.success('Account creato! Controlla la tua email per confermare.');
+        await signUp(email, password, name.trim());
+        toast.success('Account creato!');
       } else {
         await signIn(email, password);
         toast.success('Benvenuto!');
@@ -60,6 +61,25 @@ export default function Login() {
         flexDirection: 'column',
         gap: '14px',
       }}>
+        {isSignUp && (
+          <input
+            type="text"
+            value={name}
+            onChange={e => setName(e.target.value)}
+            placeholder="Il tuo nome"
+            required
+            style={{
+              padding: '14px 16px',
+              borderRadius: theme.radius.md,
+              border: `1.5px solid ${theme.border.medium}`,
+              fontSize: '15px',
+              color: theme.text.primary,
+              background: '#fff',
+              outline: 'none',
+              width: '100%',
+            }}
+          />
+        )}
         <input
           type="email"
           value={email}
