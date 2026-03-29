@@ -9,6 +9,7 @@ import Pantry from './pages/Pantry';
 import ShoppingList from './pages/ShoppingList';
 import Bills from './pages/Bills';
 import Alerts from './pages/Alerts';
+import Chat from './pages/Chat';
 import Settings from './pages/Settings';
 import { useProducts } from './hooks/useProducts';
 import { useBills } from './hooks/useBills';
@@ -53,6 +54,7 @@ function AuthenticatedApp() {
         <Route path="/" element={<Pantry />} />
         <Route path="/shopping" element={<ShoppingList />} />
         <Route path="/bills" element={<Bills />} />
+        <Route path="/chat" element={<Chat />} />
         <Route path="/alerts" element={<Alerts alerts={alerts} />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="*" element={<Navigate to="/" replace />} />
