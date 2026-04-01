@@ -129,9 +129,9 @@ export default function Pantry() {
 
       <div style={{ padding: '0 20px', display: 'flex', flexDirection: 'column', gap: '10px', paddingBottom: '20px' }}>
         {loading ? (
-          <EmptyState icon="⏳" title="Caricamento..." />
+          <EmptyState icon="loading" title="Caricamento..." />
         ) : filtered.length === 0 ? (
-          <EmptyState icon="🏪" title="Dispensa vuota" subtitle="Aggiungi il tuo primo prodotto con il tasto +" />
+          <EmptyState icon="pantry" title="Dispensa vuota" subtitle="Aggiungi il tuo primo prodotto con il tasto +" />
         ) : (
           filtered.map(p => (
             <ProductCard
