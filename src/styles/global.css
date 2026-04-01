@@ -7,11 +7,13 @@
 html {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   background: linear-gradient(180deg, #FDF2F8 0%, #FAF5FF 40%, #F5F3FF 100%);
+  background-attachment: fixed;
   color: #4C1D95;
   min-height: 100vh;
   min-height: 100dvh;
@@ -27,20 +29,37 @@ body {
   flex-direction: column;
 }
 
+/* Prevent iOS zoom on inputs */
 input, textarea, select, button {
   font-family: inherit;
-  font-size: inherit;
+  font-size: 16px;
+  touch-action: manipulation;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+  font-size: 16px;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 button {
   cursor: pointer;
   border: none;
   background: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 img {
@@ -50,14 +69,8 @@ img {
 
 /* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 4px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: #E9D5FF;
-  border-radius: 4px;
+  width: 0;
+  display: none;
 }
 
 /* Animations */
@@ -79,16 +92,16 @@ img {
 }
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  50% { transform: scale(1.08); }
 }
 
 .page-enter {
-  animation: fadeIn 0.3s ease-out;
+  animation: fadeIn 0.25s ease-out;
 }
 
-/* Safe area */
+/* Safe area - accounts for bottom nav + safe area */
 .safe-bottom {
-  padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc(90px + env(safe-area-inset-bottom, 0px));
 }
 
 /* App container */
@@ -99,4 +112,12 @@ img {
   min-height: 100vh;
   min-height: 100dvh;
   position: relative;
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Prevent body scroll when modal open */
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
 }

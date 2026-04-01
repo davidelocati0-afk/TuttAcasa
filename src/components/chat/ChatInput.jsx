@@ -10,7 +10,6 @@ export default function ChatInput({ onSend, isListening, onMicToggle, isSupporte
 
   useEffect(() => {
     if (!isListening && transcript) {
-      // Auto-send after voice stops if there's content
       const timer = setTimeout(() => {
         if (transcript.trim()) {
           onSend(transcript.trim());
@@ -31,14 +30,15 @@ export default function ChatInput({ onSend, isListening, onMicToggle, isSupporte
   return (
     <form onSubmit={handleSubmit} style={{
       position: 'fixed',
-      bottom: 'calc(66px + env(safe-area-inset-bottom, 0px))',
+      bottom: 'calc(60px + env(safe-area-inset-bottom, 0px))',
       left: '50%',
       transform: 'translateX(-50%)',
       width: '100%',
       maxWidth: '480px',
-      padding: '8px 16px',
-      background: 'rgba(255,255,255,0.9)',
+      padding: '8px 12px',
+      background: 'rgba(255,255,255,0.92)',
       backdropFilter: 'blur(12px)',
+      WebkitBackdropFilter: 'blur(12px)',
       borderTop: `1px solid ${theme.border.light}`,
       display: 'flex',
       alignItems: 'center',
@@ -55,11 +55,12 @@ export default function ChatInput({ onSend, isListening, onMicToggle, isSupporte
           padding: '12px 16px',
           borderRadius: '24px',
           border: `1.5px solid ${isListening ? theme.primary[400] : theme.border.medium}`,
-          fontSize: '15px',
+          fontSize: '16px',
           color: theme.text.primary,
           background: isListening ? theme.primary[50] : '#fff',
           outline: 'none',
-          transition: 'all 0.2s',
+          WebkitAppearance: 'none',
+          minHeight: '44px',
         }}
       />
 
@@ -71,17 +72,15 @@ export default function ChatInput({ onSend, isListening, onMicToggle, isSupporte
             width: '44px',
             height: '44px',
             borderRadius: '50%',
-            border: 'none',
             background: isListening ? theme.gradient : theme.primary[100],
             color: isListening ? '#fff' : theme.primary[600],
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            cursor: 'pointer',
             flexShrink: 0,
             animation: isListening ? 'pulse 1.5s ease-in-out infinite' : 'none',
             boxShadow: isListening ? theme.shadow.md : 'none',
-            transition: 'all 0.2s',
+            WebkitTapHighlightColor: 'transparent',
           }}
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -100,16 +99,14 @@ export default function ChatInput({ onSend, isListening, onMicToggle, isSupporte
           width: '44px',
           height: '44px',
           borderRadius: '50%',
-          border: 'none',
           background: text.trim() ? theme.gradient : theme.primary[100],
           color: text.trim() ? '#fff' : theme.text.muted,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          cursor: text.trim() ? 'pointer' : 'default',
           flexShrink: 0,
           opacity: text.trim() ? 1 : 0.4,
-          transition: 'all 0.2s',
+          WebkitTapHighlightColor: 'transparent',
         }}
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

@@ -9,17 +9,21 @@ export default function ShoppingItem({ item, onToggle, onDelete }) {
       padding: '12px 14px',
       background: theme.bg.card,
       backdropFilter: 'blur(8px)',
-      borderRadius: theme.radius.lg,
+      WebkitBackdropFilter: 'blur(8px)',
+      borderRadius: '14px',
       border: `1px solid ${theme.border.light}`,
       opacity: item.is_bought ? 0.5 : 1,
-      transition: 'all 0.2s',
+      transition: 'opacity 0.2s',
     }}>
       <button onClick={() => onToggle(item)} style={{
-        width: '24px', height: '24px', borderRadius: '50%',
+        width: '28px', height: '28px', borderRadius: '50%',
         border: `2px solid ${item.is_bought ? theme.success : theme.primary[300]}`,
         background: item.is_bought ? theme.success : 'transparent',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        flexShrink: 0, cursor: 'pointer',
+        flexShrink: 0,
+        padding: '0',
+        minWidth: '44px', minHeight: '44px',
+        WebkitTapHighlightColor: 'transparent',
       }}>
         {item.is_bought && (
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3"><path d="M20 6L9 17l-5-5"/></svg>
@@ -30,6 +34,7 @@ export default function ShoppingItem({ item, onToggle, onDelete }) {
         <span style={{
           fontSize: '15px', fontWeight: '500', color: theme.text.primary,
           textDecoration: item.is_bought ? 'line-through' : 'none',
+          wordBreak: 'break-word',
         }}>
           {item.name}
         </span>
@@ -45,11 +50,13 @@ export default function ShoppingItem({ item, onToggle, onDelete }) {
       </div>
 
       <button onClick={() => onDelete(item.id)} style={{
-        width: '32px', height: '32px', borderRadius: '8px',
+        width: '44px', height: '44px', borderRadius: '10px',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        background: 'none', color: theme.text.muted, border: 'none', flexShrink: 0,
+        background: 'none', color: theme.text.muted,
+        flexShrink: 0,
+        WebkitTapHighlightColor: 'transparent',
       }}>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
       </button>
     </div>
   );

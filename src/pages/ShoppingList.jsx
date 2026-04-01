@@ -51,7 +51,7 @@ export default function ShoppingList() {
       <Header title="Lista spesa" subtitle={`${unbought.length} da comprare`} />
       <QuickAdd onAdd={handleAdd} />
 
-      <div style={{ padding: '0 20px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      <div style={{ padding: '0 16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
         {loading ? (
           <EmptyState icon="⏳" title="Caricamento..." />
         ) : items.length === 0 ? (

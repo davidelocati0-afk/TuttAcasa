@@ -28,9 +28,10 @@ export default function BottomNav() {
       borderTop: `1px solid ${theme.border.light}`,
       display: 'flex',
       justifyContent: 'space-around',
-      paddingTop: '8px',
-      paddingBottom: 'calc(8px + env(safe-area-inset-bottom, 0px))',
+      paddingTop: '6px',
+      paddingBottom: 'calc(6px + env(safe-area-inset-bottom, 0px))',
       zIndex: 50,
+      WebkitBackdropFilter: 'blur(12px)',
     }}>
       {tabs.map(tab => {
         const active = location.pathname === tab.path;
