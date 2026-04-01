@@ -17,11 +17,13 @@ const theme = {
     600: '#DB2777',
   },
   gradient: 'linear-gradient(135deg, #8B5CF6, #EC4899)',
+  gradientSubtle: 'linear-gradient(135deg, #EDE9FE, #FCE7F3)',
   bg: {
     page: '#F8F5FF',
     card: '#FFFFFF',
-    cardHover: '#FAFAFF',
+    cardGlass: 'rgba(255,255,255,0.75)',
     section: '#F0ECFF',
+    overlay: 'rgba(30,20,60,0.5)',
   },
   success: '#059669',
   warning: '#D97706',
@@ -33,20 +35,18 @@ const theme = {
     white: '#FFFFFF',
   },
   border: {
-    light: '#E8E5F0',
+    light: 'rgba(139,92,246,0.08)',
     medium: '#DDD6FE',
     focus: '#8B5CF6',
+    glass: 'rgba(255,255,255,0.25)',
   },
-  radius: {
-    sm: '8px',
-    md: '12px',
-    lg: '16px',
-    xl: '24px',
-  },
+  radius: { sm: '10px', md: '14px', lg: '18px', xl: '28px' },
   shadow: {
-    sm: '0 1px 3px rgba(0,0,0,0.06)',
-    md: '0 4px 12px rgba(0,0,0,0.08)',
-    lg: '0 8px 24px rgba(0,0,0,0.12)',
+    sm: '0 2px 8px rgba(139,92,246,0.06)',
+    md: '0 4px 16px rgba(139,92,246,0.1)',
+    lg: '0 8px 32px rgba(139,92,246,0.15)',
+    glow: '0 4px 20px rgba(139,92,246,0.25)',
+    float: '0 8px 32px rgba(0,0,0,0.12)',
   },
 };
 
