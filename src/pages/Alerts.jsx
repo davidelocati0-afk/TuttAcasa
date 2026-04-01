@@ -1,8 +1,15 @@
 import Header from '../components/layout/Header';
 import NotifItem from '../components/notifications/NotifItem';
 import EmptyState from '../components/ui/EmptyState';
+import { useProducts } from '../hooks/useProducts';
+import { useBills } from '../hooks/useBills';
+import { useNotifications } from '../hooks/useNotifications';
 
-export default function Alerts({ alerts = [] }) {
+export default function Alerts() {
+  const { products } = useProducts();
+  const { bills } = useBills();
+  const { alerts } = useNotifications(products, bills);
+
   return (
     <div className="page-enter safe-bottom">
       <Header title="Avvisi" subtitle={alerts.length > 0 ? `${alerts.length} avvisi attivi` : 'Tutto sotto controllo'} />

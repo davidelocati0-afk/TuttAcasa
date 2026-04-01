@@ -1,8 +1,8 @@
 export const DEFAULT_CATEGORIES = [
-  { name: 'Dispensa', icon: '\u{1F3EA}', color: '#A855F7', sort_order: 0 },
-  { name: 'Freschi', icon: '\u{1F96C}', color: '#EC4899', sort_order: 1 },
-  { name: 'Surgelati', icon: '\u{2744}\u{FE0F}', color: '#8B5CF6', sort_order: 2 },
-  { name: 'Consumabili', icon: '\u{1F9F4}', color: '#D946EF', sort_order: 3 },
+  { name: 'Dispensa', icon: '🏪', color: '#A855F7', sort_order: 0 },
+  { name: 'Freschi', icon: '🥬', color: '#EC4899', sort_order: 1 },
+  { name: 'Surgelati', icon: '❄️', color: '#8B5CF6', sort_order: 2 },
+  { name: 'Consumabili', icon: '🧴', color: '#D946EF', sort_order: 3 },
 ];
 
 export const UNITS = [

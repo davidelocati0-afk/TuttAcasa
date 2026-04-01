@@ -62,7 +62,7 @@ export default function Settings() {
         {/* Household info */}
         <div style={cardStyle}>
           <h3 style={{ fontSize: '16px', fontWeight: '700', color: theme.text.primary, marginBottom: '12px' }}>
-            {'\u{1F3E0}'} La tua casa
+            {'🏠'} La tua casa
           </h3>
           <div style={labelStyle}>Nome</div>
           <div style={{ fontSize: '15px', fontWeight: '600', color: theme.text.primary, marginBottom: '12px' }}>
@@ -94,7 +94,7 @@ export default function Settings() {
         {/* Members */}
         <div style={cardStyle}>
           <h3 style={{ fontSize: '16px', fontWeight: '700', color: theme.text.primary, marginBottom: '12px' }}>
-            {'\u{1F465}'} Membri ({members.length})
+            {'👥'} Membri ({members.length})
           </h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {members.map(m => (
@@ -147,7 +147,7 @@ export default function Settings() {
         {/* Account */}
         <div style={cardStyle}>
           <h3 style={{ fontSize: '16px', fontWeight: '700', color: theme.text.primary, marginBottom: '12px' }}>
-            {'\u{1F464}'} Account
+            {'👤'} Account
           </h3>
           <div style={labelStyle}>Nome</div>
           <div style={{ fontSize: '14px', color: theme.text.primary, marginBottom: '12px' }}>{user?.user_metadata?.display_name || '-'}</div>

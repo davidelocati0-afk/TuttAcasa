@@ -8,13 +8,9 @@ import JoinHousehold from './pages/JoinHousehold';
 import Pantry from './pages/Pantry';
 import ShoppingList from './pages/ShoppingList';
 import Bills from './pages/Bills';
-import Alerts from './pages/Alerts';
 import Chat from './pages/Chat';
+import Alerts from './pages/Alerts';
 import Settings from './pages/Settings';
-import { useProducts } from './hooks/useProducts';
-import { useBills } from './hooks/useBills';
-import { useShoppingList } from './hooks/useShoppingList';
-import { useNotifications } from './hooks/useNotifications';
 import theme from './styles/theme';
 
 function AppContent() {
@@ -27,7 +23,7 @@ function AppContent() {
         minHeight: '100vh', display: 'flex', flexDirection: 'column',
         alignItems: 'center', justifyContent: 'center', background: theme.bg.page,
       }}>
-        <div style={{ fontSize: '48px', marginBottom: '16px' }}>{'\u{1F3E0}'}</div>
+        <div style={{ fontSize: '48px', marginBottom: '16px' }}>🏠</div>
         <h1 style={{ fontSize: '24px', fontWeight: '800', background: theme.gradient, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
           TuttAcasa
         </h1>
@@ -43,11 +39,6 @@ function AppContent() {
 }
 
 function AuthenticatedApp() {
-  const { products } = useProducts();
-  const { bills } = useBills();
-  const { unboughtCount } = useShoppingList();
-  const { alerts, alertCount } = useNotifications(products, bills);
-
   return (
     <div className="app-container">
       <Routes>
@@ -55,11 +46,11 @@ function AuthenticatedApp() {
         <Route path="/shopping" element={<ShoppingList />} />
         <Route path="/bills" element={<Bills />} />
         <Route path="/chat" element={<Chat />} />
-        <Route path="/alerts" element={<Alerts alerts={alerts} />} />
+        <Route path="/alerts" element={<Alerts />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-      <BottomNav alertCount={alertCount} shoppingCount={unboughtCount} />
+      <BottomNav />
     </div>
   );
 }

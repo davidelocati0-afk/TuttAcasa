@@ -76,7 +76,7 @@ export default function Chat() {
             textAlign: 'center', padding: '40px 16px',
             display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px',
           }}>
-            <div style={{ fontSize: '48px' }}>{'\u{1F4AC}'}</div>
+            <div style={{ fontSize: '48px' }}>{'💬'}</div>
             <h3 style={{ fontSize: '17px', fontWeight: '700', color: theme.text.primary }}>
               Dimmi cosa hai comprato!
             </h3>
@@ -100,7 +100,7 @@ export default function Chat() {
                     transition: 'all 0.15s',
                   }}
                 >
-                  {'\u{1F4A1}'} {phrase}
+                  {'💡'} {phrase}
                 </button>
               ))}
             </div>

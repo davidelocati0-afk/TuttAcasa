@@ -39,7 +39,7 @@ export default function Login() {
       background: theme.bg.page,
     }}>
       <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-        <div style={{ fontSize: '56px', marginBottom: '12px' }}>{'\u{1F3E0}'}</div>
+        <div style={{ fontSize: '56px', marginBottom: '12px' }}>{'🏠'}</div>
         <h1 style={{
           fontSize: '32px',
           fontWeight: '800',
@@ -147,7 +147,7 @@ export default function Login() {
           textDecoration: 'underline',
         }}
       >
-        {isSignUp ? 'Hai gia\u0300 un account? Accedi' : 'Non hai un account? Registrati'}
+        {isSignUp ? 'Hai già un account? Accedi' : 'Non hai un account? Registrati'}
       </button>
     </div>
   );

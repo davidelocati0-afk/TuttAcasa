@@ -46,7 +46,7 @@ export default function JoinHousehold() {
       padding: '20px',
       background: theme.bg.page,
     }}>
-      <div style={{ fontSize: '48px', marginBottom: '16px' }}>{'\u{1F3E0}'}</div>
+      <div style={{ fontSize: '48px', marginBottom: '16px' }}>{'🏠'}</div>
       <h1 style={{ fontSize: '24px', fontWeight: '800', color: theme.text.primary, marginBottom: '8px' }}>
         Benvenuto in TuttAcasa!
       </h1>

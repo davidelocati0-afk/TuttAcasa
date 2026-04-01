@@ -1,7 +1,7 @@
 import theme from '../../styles/theme';
 
 export default function CategoryFilter({ categories, selected, onSelect }) {
-  const all = [{ id: 'all', name: 'Tutti', icon: '\u{1F4CB}', color: theme.primary[500] }, ...categories];
+  const all = [{ id: 'all', name: 'Tutti', icon: '📋', color: theme.primary[500] }, ...categories];
 
   return (
     <div style={{

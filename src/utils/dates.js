@@ -17,12 +17,13 @@ export function formatDateShort(date) {
 
 export function daysUntil(date) {
   if (!date) return null;
-  const d = typeof date === 'string' ? parseISO(date) : date;
+  const d = typeof date === 'string' ? parseISO(date) : new Date(date);
   if (!isValid(d)) return null;
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  d.setHours(0, 0, 0, 0);
-  return differenceInDays(d, today);
+  const target = new Date(d);
+  target.setHours(0, 0, 0, 0);
+  return differenceInDays(target, today);
 }
 
 export function getExpiryLevel(date) {

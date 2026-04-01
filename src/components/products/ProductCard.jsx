@@ -24,7 +24,7 @@ export default function ProductCard({ product, onDecrement, onSendToCart, onEdit
           background: cat?.color ? `${cat.color}20` : theme.primary[100],
           display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', flexShrink: 0,
         }}>
-          {cat?.icon || '\u{1F4E6}'}
+          {cat?.icon || '📦'}
         </div>
       )}
 
@@ -57,7 +57,7 @@ export default function ProductCard({ product, onDecrement, onSendToCart, onEdit
         <button onClick={() => onSendToCart(product)} title="Aggiungi alla spesa" style={{
           width: '32px', height: '32px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center',
           background: theme.accent[500] + '18', color: theme.accent[500], fontSize: '16px', border: 'none',
-        }}>{'\u{1F6D2}'}</button>
+        }}>{'🛒'}</button>
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', flexShrink: 0 }}>

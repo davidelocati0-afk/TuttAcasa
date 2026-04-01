@@ -98,11 +98,11 @@ export default function ProductForm({ open, onClose, onSubmit, categories, initi
 
         <div style={{ display: 'flex', gap: '12px' }}>
           <div style={{ flex: 1 }}>
-            <label style={labelStyle}>Quantita\u0300</label>
+            <label style={labelStyle}>Quantità</label>
             <input type="number" min="1" style={inputStyle} value={form.quantity} onChange={e => setForm(f => ({ ...f, quantity: e.target.value }))} />
           </div>
           <div style={{ flex: 1 }}>
-            <label style={labelStyle}>Unita\u0300</label>
+            <label style={labelStyle}>Unità</label>
             <select style={inputStyle} value={form.unit} onChange={e => setForm(f => ({ ...f, unit: e.target.value }))}>
               {UNITS.map(u => <option key={u.value} value={u.value}>{u.label}</option>)}
             </select>
