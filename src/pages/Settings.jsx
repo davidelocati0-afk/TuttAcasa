@@ -96,34 +96,50 @@ export default function Settings() {
           <h3 style={{ fontSize: '16px', fontWeight: '700', color: theme.text.primary, marginBottom: '12px' }}>
             {'👥'} Membri ({members.length})
           </h3>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            {members.map(m => (
-              <div key={m.id} style={{
-                display: 'flex', alignItems: 'center', gap: '10px',
-                padding: '8px 0', borderBottom: `1px solid ${theme.border.light}`,
-              }}>
-                <div style={{
-                  width: '32px', height: '32px', borderRadius: '50%', background: theme.gradient,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: '#fff', fontSize: '14px', fontWeight: '700',
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+            {members.map(m => {
+              const isMe = m.user_id === user?.id;
+              const name = m.display_name || (isMe ? 'Tu' : 'Membro');
+              const initials = name.substring(0, 2).toUpperCase();
+              return (
+                <div key={m.id} style={{
+                  display: 'flex', alignItems: 'center', gap: '12px',
+                  padding: '10px 0', borderBottom: `1px solid ${theme.border.light}`,
                 }}>
-                  {m.user_id === user?.id ? 'Tu' : '?'}
-                </div>
-                <div style={{ flex: 1 }}>
-                  <span style={{ fontSize: '14px', fontWeight: '500', color: theme.text.primary }}>
-                    {m.user_id === user?.id ? 'Tu' : `Membro`}
-                  </span>
-                  <span style={{
-                    fontSize: '11px', padding: '1px 6px', borderRadius: '4px', marginLeft: '8px',
-                    background: m.role === 'admin' ? theme.primary[100] : theme.border.light,
-                    color: m.role === 'admin' ? theme.primary[600] : theme.text.muted,
-                    fontWeight: '600',
+                  <div style={{
+                    width: '36px', height: '36px', borderRadius: '50%', background: theme.gradient,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: '#fff', fontSize: '13px', fontWeight: '700', flexShrink: 0,
                   }}>
-                    {m.role === 'admin' ? 'Admin' : 'Membro'}
-                  </span>
+                    {initials}
+                  </div>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <span style={{ fontSize: '15px', fontWeight: '600', color: theme.text.primary }}>
+                        {name}
+                      </span>
+                      {isMe && (
+                        <span style={{
+                          fontSize: '10px', fontWeight: '600', padding: '1px 6px', borderRadius: '4px',
+                          background: theme.accent[500] + '18', color: theme.accent[500],
+                        }}>tu</span>
+                      )}
+                      <span style={{
+                        fontSize: '10px', padding: '1px 6px', borderRadius: '4px',
+                        background: m.role === 'admin' ? theme.primary[100] : theme.border.light,
+                        color: m.role === 'admin' ? theme.primary[600] : theme.text.muted,
+                        fontWeight: '600',
+                      }}>
+                        {m.role === 'admin' ? 'Admin' : 'Membro'}
+                      </span>
+                    </div>
+                    {m.email && (
+                      <p style={{ fontSize: '12px', color: theme.text.muted, marginTop: '2px' }}>{m.email}</p>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 

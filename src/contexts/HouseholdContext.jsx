@@ -46,9 +46,7 @@ export function HouseholdProvider({ children }) {
       setHousehold(hh);
 
       const { data: mems } = await supabase
-        .from('household_members')
-        .select('*')
-        .eq('household_id', hh.id);
+        .rpc('get_household_members_with_names', { hh_id: hh.id });
 
       setMembers(mems || []);
 
