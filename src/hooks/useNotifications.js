@@ -24,7 +24,7 @@ export function useNotifications(products = [], bills = []) {
       const days = daysUntil(b.due_date);
       if (days === null || days > 2) return;
 
-      const amount = b.amount ? ` \u2014 \u20AC${parseFloat(b.amount).toFixed(2)}` : '';
+      const amount = b.amount ? ` — €${parseFloat(b.amount).toFixed(2)}` : '';
       let message, level;
       if (days < 0) { message = `${b.name} scaduta!${amount}`; level = 'danger'; }
       else if (days === 0) { message = `${b.name} scade oggi!${amount}`; level = 'danger'; }

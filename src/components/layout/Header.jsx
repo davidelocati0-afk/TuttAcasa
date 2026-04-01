@@ -1,4 +1,5 @@
 import theme from '../../styles/theme';
+import NotifBell from '../notifications/NotifBell';
 
 export default function Header({ title, subtitle, right }) {
   return (
@@ -8,7 +9,7 @@ export default function Header({ title, subtitle, right }) {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      gap: '12px',
+      gap: '10px',
     }}>
       <div style={{ flex: 1, minWidth: 0 }}>
         <h1 style={{
@@ -27,7 +28,10 @@ export default function Header({ title, subtitle, right }) {
           <p style={{ fontSize: '13px', color: theme.text.muted, marginTop: '2px' }}>{subtitle}</p>
         )}
       </div>
-      {right && <div style={{ flexShrink: 0 }}>{right}</div>}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+        {right}
+        <NotifBell />
+      </div>
     </div>
   );
 }
