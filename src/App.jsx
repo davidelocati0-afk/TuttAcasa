@@ -5,6 +5,7 @@ import { HouseholdProvider, useHousehold } from './contexts/HouseholdContext';
 import BottomNav from './components/layout/BottomNav';
 import Login from './pages/Login';
 import JoinHousehold from './pages/JoinHousehold';
+import Home from './pages/Home';
 import Pantry from './pages/Pantry';
 import ShoppingList from './pages/ShoppingList';
 import Bills from './pages/Bills';
@@ -42,7 +43,8 @@ function AuthenticatedApp() {
   return (
     <div className="app-container">
       <Routes>
-        <Route path="/" element={<Pantry />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/pantry" element={<Pantry />} />
         <Route path="/shopping" element={<ShoppingList />} />
         <Route path="/bills" element={<Bills />} />
         <Route path="/chat" element={<Chat />} />
