@@ -53,6 +53,20 @@ export default function Home() {
       ),
     },
     {
+      key: 'planner',
+      path: '/planner',
+      label: 'Planner',
+      value: null,
+      unit: 'Menu settimanale',
+      color: '#059669',
+      bgColor: '#D1FAE5',
+      icon: (
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
+        </svg>
+      ),
+    },
+    {
       key: 'bills',
       path: '/bills',
       label: 'Bollette',
@@ -72,10 +86,10 @@ export default function Home() {
       label: 'Assistente',
       value: null,
       unit: 'Chiedi aiuto',
-      color: '#059669',
-      bgColor: '#D1FAE5',
+      color: theme.primary[500],
+      bgColor: theme.primary[50],
       icon: (
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={theme.primary[500]} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
         </svg>
       ),

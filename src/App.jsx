@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import Pantry from './pages/Pantry';
 import ShoppingList from './pages/ShoppingList';
 import Bills from './pages/Bills';
+import MealPlanner from './pages/MealPlanner';
 import Chat from './pages/Chat';
 import Alerts from './pages/Alerts';
 import Settings from './pages/Settings';
@@ -47,6 +48,7 @@ function AuthenticatedApp() {
         <Route path="/pantry" element={<Pantry />} />
         <Route path="/shopping" element={<ShoppingList />} />
         <Route path="/bills" element={<Bills />} />
+        <Route path="/planner" element={<MealPlanner />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/alerts" element={<Alerts />} />
         <Route path="/settings" element={<Settings />} />
